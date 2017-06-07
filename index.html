@@ -1,0 +1,761 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Equilibrium Technologies</title>
+	<link href="https://fonts.googleapis.com/css?family=Hind|Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style>
+		html, body, #wrapper{
+			width:100%;
+			margin:0px;
+			padding:0px;
+			font-family: 'Open Sans', sans-serif;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-family: 'Hind', sans-serif;
+			font-size:16px;
+			display:block;
+			height:100%;
+			min-height:100%;
+		}
+		ul, li, p, h1, h2, h3, h4, span{
+			margin:0px;
+			padding:0px;
+		}
+		#wrapper{
+			display:block;
+			position:relative;
+			min-width:100%;
+			min-height:100%;
+			width:100%;
+			height:100%;
+		}
+		#content{
+			max-width:1024px;
+			width:90%;
+			margin:0 auto;
+			font-size:1.333em;
+		}
+		#header{
+			display:flex;
+			flex-direction:row;
+			background-color:rgba(255, 255, 255, 1.0);
+			border-bottom:2px solid #65bd60;
+			height:65px;
+			width:100%;
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:1000;
+		}
+		#headerContent, #footerContent{
+			max-width:1024px;
+			width:90%;
+			margin:0 auto;
+			display:flex;
+			align-items:center;
+		}
+		#logo{
+			width:30%;
+			float:left;
+		}
+		#logo img{
+			max-width:200px;
+			width:100%;
+		}
+		#navigation{
+			width:70%;
+			float:left;
+			text-align:right;
+		}
+		#navigation ul li{
+			display:inline-block;
+			margin:0px 15px;
+			font-size:1.1em;
+		}
+		#navigation ul li a{
+			text-decoration:none;
+			color:#333435;
+		}
+		#navigation ul li a:hover{
+			border-bottom:20px solid #65bd60;
+			color:#65bd60;
+		}
+		#fullPageHead{
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			display:block;
+			z-index:1;
+    		min-width:100%;
+    		min-height:100%;
+    		background:
+				linear-gradient(
+					rgba(51, 52, 53, 0.7),
+					rgba(51, 52, 53, 0.7)),
+				url(images/533434006.jpg);
+			background-repeat:no-repeat;
+			background-position:center;
+			display:flex;
+			align-items:center;
+			border-bottom:2px solid #65bd60;
+		}
+		#fullPageContent{
+			margin:0 auto;
+			text-align:left;
+			width:100%;
+			height:100%;
+			overflow:hidden;
+			display:table;
+		}
+		#container{
+			display:table-cell;
+			position:relative;
+			vertical-align:middle;
+			text-align:center;
+		}
+		#container .title{
+			font-size:3.125em;
+			color:#ffffff;
+			max-width:1024px;
+			margin:0px auto 30px auto;
+			text-align:left;
+			font-family: 'Open Sans', sans-serif;
+		}
+		.content{
+			font-size:1.563em;
+			color:#ffffff;
+			max-width:1024px;
+			margin:0px auto 35px auto;
+			text-align:left;
+			font-family: 'Hind', sans-serif;
+		}
+		.button{
+			height:inherit;
+			height:auto;
+			max-width:1024px;
+			color:#ffffff;
+			margin:0px auto;
+		}
+		.button a{
+			font-size:1.333em;
+			color:#ffffff;
+			font-weight:300;
+			text-decoration:none;
+			padding:5px;
+			max-width:150px;
+			border:2px solid #ffffff;
+			display:block;
+			max-height:45px;
+			text-align:center;
+		}
+		.button a:hover{
+			background-color:rgba(255, 255, 255, 0.4);
+		}
+		#textStripe{
+			width:100%;
+			overflow:hidden;
+			height:auto;
+			min-height:100%;
+			margin:45px 0px;;
+		}
+		#textStripe .text{
+			margin-top:20px;
+			text-align:center;
+		}
+		#textStripe .text span{
+			font-weight:600;
+		}
+		.seperator{
+			display:flex;
+			align-items:center;
+			width:100%;
+		}
+		.backgroundStripe{
+			background-color:#d4dcca;
+			width:47%;
+			height:2px;
+		}
+		.miniIcon{
+			width:6%;
+			text-align:center;
+			align-content:center;
+			display:inline-block;
+			background-color:#ffffff;
+		}
+		.miniIcon img{
+			max-width:22px;
+			text-align:center;
+			align-content:center;
+			vertical-align:middle;
+		}
+		#mainContent{
+			width:90%;
+			display:flex;
+			align-items:center;
+			margin:45px auto;
+		}
+		.thirtyLeft{
+			width:50%;
+		}
+		.fortyLeft{
+			width:40%;
+			align-content: center;
+			text-align:center;
+		}
+		.fiftyLeft{
+			width:50%;
+		}
+		.sixtyLeft{
+			width:60%;
+		}
+		.seventyRight{
+			width:60%;
+			text-align:left;
+		}
+		.sixtyRight{
+			width:60%;
+			text-align:left;
+		}
+		.fiftyRight{
+			width:60%;
+			text-align:left;
+		}
+		.fortyRight{
+			width:60%;
+			text-align:left;
+		}
+		.thirtyRight{
+			width:60%;
+			text-align:left;
+		}
+		.fortyLeft img{
+			max-width:220px;
+		}
+		.sixtyRight span{
+			font-weight:600;
+		}
+		#columnContent{
+			margin:45px auto;
+			width:90%;
+		}
+		.subContent{
+			display:flex;
+			align-items:center;
+			justify-content:center;
+		}
+		#columnContent .sectionTitle{
+			width:100%;
+			color:#333435;
+			display:block;
+			text-align:center;
+			font-family: 'Open Sans', sans-serif;
+			font-size:1.4em;
+			margin-bottom:35px;
+		}
+		.columns{
+			text-align:center;
+			padding:0px 30px;
+		}
+		.columns .title{
+			font-family: 'Open Sans', sans-serif;
+			color:#57990f;
+			font-size:1.1em;
+			margin:5px 0px 10px 0px;
+		}
+		.col1{
+			width:100%;
+			margin:0px auto;
+		}
+		.col2{
+			width:48%;
+			margin:0px;
+		}
+		.col2.second{
+			width:48%;
+			margin:0px 0px 0px 4%;
+		}
+		.col3{
+			width:32%;
+			margin:0px;
+		}
+		.col3.secondary{
+			width:32%;
+			margin:0px 0px 0px 2%;
+		}
+		.col4{
+			width:24%;
+		}
+		.col4.secondary{
+			width:24%;
+			margin:0px 0px 0px 1%;
+		}
+		.icon{
+			max-height:70px;
+		}
+		.icon img{
+			max-height:70px;
+		}
+		#footer{
+			background-color:#333435;
+			height:30px;
+			display:flex;
+			align-items:center;
+			width:100%;
+		}
+		.footNav ul li{
+			display:inline-block;
+			margin:0px 15px;
+			font-size:.8em;
+		}
+		.footNav ul li a{
+			text-decoration:none;
+			color:#ffffff;
+		}
+		.footNav ul li a{
+			text-decoration:none;
+			color:#ffffff;
+		}
+		.footNav ul li a:hover{
+			color:#65bd60;
+		}
+		#footer .footNav{
+			width:40%;
+		}
+		#footer .copyright{
+			width:20%;
+			font-size:.6em;
+			text-align:center;
+			color:#ffffff;
+		}
+		.copyright a{
+			text-decoration:none;
+			color:#ffffff;
+		}
+		.copyright a:hover{
+			text-decoration:none;
+			color:#65bd60;
+		}
+		.social{
+			display:flex;
+			flex-direction:row;
+			width:40%;
+			justify-content:flex-end;
+		}
+		.social img{
+			width:20px;
+			vertical-align:middle;
+		}
+		
+		.twitter, .facebook{
+			display:inline-block;
+		}
+		.social a:hover{
+			-webkit-filter: opacity(30%); /* Safari */
+   			filter: opacity(30%);
+		}
+		@media (max-width: 768px) {
+			#fullPageContent {
+				padding:0px 50px;
+			}
+		}
+		@media (max-device-width: 480px) {
+			#header{
+				height:auto;
+			}
+			#headerContent{
+				display:none;
+			}
+			.bar1, .bar2, .bar3 {
+				width: 35px;
+				height: 5px;
+				background-color: #65bd60;
+				margin: 6px 0;
+				transition: 0.4s;
+			}
+			.change .bar1 {
+				-webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+				transform: rotate(-45deg) translate(-9px, 6px) ;
+			}
+			.change .bar2 {
+				opacity: 0;
+			}
+			.change .bar3 {
+				-webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+				transform: rotate(45deg) translate(-8px, -8px) ;
+			}
+			#navigation{
+				display:none;
+			}
+			#mainContent, .subContent {
+				display:flex;
+				flex-direction:column;
+			}
+			#mainContent div{
+				width:100%;
+				text-align:center;
+			}
+			.subContent .columns{
+				width:100%;
+				padding:30px 0px 30px 0px;
+				border-bottom:1px solid #cccccc;
+			}
+			.subContent .columns:last-child{
+				border-bottom:none;
+			}
+			#fullPageContent {
+				padding:50px 20px 20px 20px;
+				text-align:center;
+				display:flex;
+				align-items:center;
+				flex-direction:column;
+			}
+			#fullPageContent div{
+				text-align:center;
+				width:100%;
+			}
+			.button a{
+				margin:0 auto;
+			}
+			#footer{
+				height:auto;
+			}
+			#footerContent{
+				display:flex;
+				flex-direction:column;
+			}
+			#footerContent div{
+				width:100%;
+				text-align:center;
+				padding:20px 0px 0px 0px;
+			}
+			.social div{
+				display:flex;
+				
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="mobileHeader">
+			<div id="mobileHeaderContent">
+				<div id="logoMenu">
+					<div id="mobileLogo">
+						<img src="images/EQTLogo.svg">
+					</div>
+					<div id="hamburgerMenu" onclick="myFunction(this)">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+				</div>
+				<div id="mobileNav">
+					<nav>
+						<ul>
+							<li>
+								<a href="#">
+									Culture
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Approach
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Solutions
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Contact
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div id="header">
+			<div id="headerContent">
+				<div id="logo">
+					<a href="/index">
+						<img src="images/EQTLogo.svg">
+					</a>
+				</div>
+				<div id="navigation">
+					<nav>
+						<ul>
+							<li>
+								<a href="#">
+									Culture
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Approach
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Solutions
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Contact
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div id="fullPageHead" class="fullscreen background parallax">
+			<div id="fullPageContent">
+				<div id="container">
+					<div class="title">
+						Losing sleep?
+					</div>
+					<div class="content">
+						Awake at night wondering how your business will stay relevant?  Let's find out if your technology, methodology and mindset are up to the task.
+					</div>
+					<div class="button">
+						<a href="#">Contact Us.</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="textStripe">
+				<div class="icon">
+					<img src="images/EQTLogoIcon.svg">
+				</div>
+				<div class="text">
+					At Equilibrium Technologies we believe <span>in<br />improving the world with everything that we do</span>.
+				</div>
+			</div>
+			<div class="seperator">
+				<div class="backgroundStripe">
+				</div>
+				<div class="miniIcon">
+					<img src="images/SmallEQTIcon.svg">
+				</div>
+				<div class="backgroundStripe">
+				</div>
+			</div>
+			<div id="mainContent">
+				<div class="fortyLeft">
+					<img src="images/EvolvingLandscape.svg">
+				</div>
+				<div class="sixtyRight">
+					The world is full of complex, constantly evolving challenges with new technologies consistently rising up to meet them. <span>There are no one-size-fits-all solutions</span> in this ever-evolving landscape.
+				</div>
+			</div>
+			<div class="seperator">
+				<div class="backgroundStripe">
+				</div>
+				<div class="miniIcon">
+					<img src="images/SmallEQTIcon.svg">
+				</div>
+				<div class="backgroundStripe">
+				</div>
+			</div>
+			<div id="columnContent">
+				<div class="sectionTitle">
+					We know what it takes.
+				</div>
+				<div class="subContent">
+					<div class="columns col3">
+						<div class="icon">
+							<img src="images/TalentIcon.svg">
+						</div>
+						<div class="title">
+							Talent
+						</div>
+						<div class="text">
+							Remarkably talented people with the skills and knowledge to meet any demands.
+						</div>
+					</div>
+					<div class="columns col3 secondary">
+						<div class="icon">
+							<img src="images/DataIcon.svg">
+						</div>
+						<div class="title">
+							Technology
+						</div>
+						<div class="text">
+							The Most Appropriate Technologies to rise up and meet the needs of our clients.
+						</div>
+					</div>
+					<div class="columns col3 secondary">
+						<div class="icon">
+							<img src="images/CommunicationIcon.svg">
+						</div>
+						<div class="title">
+							Communication
+						</div>
+						<div class="text">
+							First-rate customer interaction leads to fully realized ideas and successful projects.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerContent">
+				<div class="footNav">
+					<nav>
+						<ul>
+							<li>
+								<a href="#">
+									Culture
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Approach
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Solutions
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Contact
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="copyright">
+					&copy; <script type="text/javascript">   document.write(new Date().getFullYear()); </script> <a href="/index.html">Equilibrium Technologies</a>
+				</div>
+				<div class="social">
+					<div class="facebook">
+						<a href="">
+							<img src="images/FacebookIcon.svg">
+						</a>
+					</div>
+					<div class="twitter">
+						<a href="">
+							<img src="images/TwitterIcon.svg">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+			/* detect touch */
+if("ontouchstart" in window){
+    document.documentElement.className = document.documentElement.className + " touch";
+}
+if(!$("html").hasClass("touch")){
+    /* background fix */
+    $(".parallax").css("background-attachment", "fixed");
+}
+
+/* fix vertical when not overflow
+call fullscreenFix() if .fullscreen content changes */
+function fullscreenFix(){
+    var h = $('body').height();
+    // set .fullscreen height
+    $(".content-b").each(function(i){
+        if($(this).innerHeight() > h){ $(this).closest(".fullscreen").addClass("overflow");
+        }
+    });
+}
+$(window).resize(fullscreenFix);
+fullscreenFix();
+
+/* resize background images */
+function backgroundResize(){
+    var windowH = $(window).height();
+    $(".background").each(function(i){
+        var path = $(this);
+        // variables
+        var contW = path.width();
+        var contH = path.height();
+        var imgW = path.attr("data-img-width");
+        var imgH = path.attr("data-img-height");
+        var ratio = imgW / imgH;
+        // overflowing difference
+        var diff = parseFloat(path.attr("data-diff"));
+        diff = diff ? diff : 0;
+        // remaining height to have fullscreen image only on parallax
+        var remainingH = 0;
+        if(path.hasClass("parallax") && !$("html").hasClass("touch")){
+            var maxH = contH > windowH ? contH : windowH;
+            remainingH = windowH - contH;
+        }
+        // set img values depending on cont
+        imgH = contH + remainingH + diff;
+        imgW = imgH * ratio;
+        // fix when too large
+        if(contW > imgW){
+            imgW = contW;
+            imgH = imgW / ratio;
+        }
+        //
+        path.data("resized-imgW", imgW);
+        path.data("resized-imgH", imgH);
+        path.css("background-size", imgW + "px " + imgH + "px");
+    });
+}
+$(window).resize(backgroundResize);
+$(window).focus(backgroundResize);
+backgroundResize();
+
+/* set parallax background-position */
+function parallaxPosition(e){
+    var heightWindow = $(window).height();
+    var topWindow = $(window).scrollTop();
+    var bottomWindow = topWindow + heightWindow;
+    var currentWindow = (topWindow + bottomWindow) / 2;
+    $(".parallax").each(function(i){
+        var path = $(this);
+        var height = path.height();
+        var top = path.offset().top;
+        var bottom = top + height;
+        // only when in range
+        if(bottomWindow > top && topWindow < bottom){
+            var imgW = path.data("resized-imgW");
+            var imgH = path.data("resized-imgH");
+            // min when image touch top of window
+            var min = 0;
+            // max when image touch bottom of window
+            var max = - imgH + heightWindow;
+            // overflow changes parallax
+            var overflowH = height < heightWindow ? imgH - height : imgH - heightWindow; // fix height on overflow
+            top = top - overflowH;
+            bottom = bottom + overflowH;
+            // value with linear interpolation
+            var value = min + (max - min) * (currentWindow - top) / (bottom - top);
+            // set background-position
+            var orizontalPosition = path.attr("data-oriz-pos");
+            orizontalPosition = orizontalPosition ? orizontalPosition : "50%";
+            $(this).css("background-position", orizontalPosition + " " + value + "px");
+        }
+    });
+}
+if(!$("html").hasClass("touch")){
+    $(window).resize(parallaxPosition);
+    //$(window).focus(parallaxPosition);
+    $(window).scroll(parallaxPosition);
+    parallaxPosition();
+}
+	</script>
+	<script>
+		function myFunction(x) {
+			x.classList.toggle("change");
+		}
+	</script>
+</body>
+</html>
