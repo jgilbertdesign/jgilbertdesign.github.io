@@ -1,5 +1,5 @@
 <?php
-$myemail = 'jessica.gilbert.1987@gmail.com';//<-----Put Your email address here.
+$myemail = 'contact@equilibriumtech.com';//<-----Put Your email address here.
 
 $nameErr = $emailErr = $phoErr = $compErr = $messErr = "";
 $name = $email_address = $phone = $message = "";
